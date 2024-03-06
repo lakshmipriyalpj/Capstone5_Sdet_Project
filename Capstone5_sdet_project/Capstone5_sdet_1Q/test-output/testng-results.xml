@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-03-05T21:37:52 IST" name="Suite" finished-at="2024-03-05T21:38:13 IST" duration-ms="20895">
+    <groups>
+    </groups>
+    <test started-at="2024-03-05T21:37:52 IST" name="Test" finished-at="2024-03-05T21:38:13 IST" duration-ms="20895">
+      <class name="com.qa.testscripts.TC_Photo_page">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.qa.testscripts.TC_Photo_page@3590fc5b]" started-at="2024-03-05T21:37:52 IST" name="setUp" finished-at="2024-03-05T21:37:59 IST" duration-ms="6503" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="hover()[pri:1, instance:com.qa.testscripts.TC_Photo_page@3590fc5b]" started-at="2024-03-05T21:37:59 IST" name="hover" finished-at="2024-03-05T21:38:04 IST" duration-ms="5413" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hover -->
+        <test-method signature="verifyHomePageTitle()[pri:2, instance:com.qa.testscripts.TC_Photo_page@3590fc5b]" started-at="2024-03-05T21:38:04 IST" name="verifyHomePageTitle" finished-at="2024-03-05T21:38:04 IST" duration-ms="192" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyHomePageTitle -->
+        <test-method signature="clickGetWordPress()[pri:3, instance:com.qa.testscripts.TC_Photo_page@3590fc5b]" started-at="2024-03-05T21:38:04 IST" name="clickGetWordPress" finished-at="2024-03-05T21:38:07 IST" duration-ms="2233" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clickGetWordPress -->
+        <test-method signature="Text_mid()[pri:4, instance:com.qa.testscripts.TC_Photo_page@3590fc5b]" started-at="2024-03-05T21:38:07 IST" name="Text_mid" finished-at="2024-03-05T21:38:07 IST" duration-ms="183" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Text_mid -->
+        <test-method signature="clickCommunity()[pri:5, instance:com.qa.testscripts.TC_Photo_page@3590fc5b]" started-at="2024-03-05T21:38:07 IST" name="clickCommunity" finished-at="2024-03-05T21:38:07 IST" duration-ms="226" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clickCommunity -->
+        <test-method signature="click_photo_directory()[pri:6, instance:com.qa.testscripts.TC_Photo_page@3590fc5b]" started-at="2024-03-05T21:38:07 IST" name="click_photo_directory" finished-at="2024-03-05T21:38:11 IST" duration-ms="3987" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- click_photo_directory -->
+        <test-method signature="enterInsearch()[pri:7, instance:com.qa.testscripts.TC_Photo_page@3590fc5b]" started-at="2024-03-05T21:38:11 IST" name="enterInsearch" finished-at="2024-03-05T21:38:12 IST" duration-ms="1388" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- enterInsearch -->
+        <test-method signature="verifyImage()[pri:8, instance:com.qa.testscripts.TC_Photo_page@3590fc5b]" started-at="2024-03-05T21:38:12 IST" name="verifyImage" finished-at="2024-03-05T21:38:13 IST" duration-ms="230" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyImage -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.qa.testscripts.TC_Photo_page@3590fc5b]" started-at="2024-03-05T21:38:13 IST" name="tearDown" finished-at="2024-03-05T21:38:13 IST" duration-ms="269" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.qa.testscripts.TC_Photo_page -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

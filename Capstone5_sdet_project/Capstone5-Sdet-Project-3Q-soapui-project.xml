@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e8abdbc9-6a9e-487a-bc44-108f41765104" activeEnvironment="Default" name="Capstone5_Sdet_Project_3Q" resourceRoot="" soapui-version="5.7.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="387ed305-14ac-4322-899d-d635b6387d00" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://restcountries.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://restcountries.com</con:endpoint></con:endpoints><con:resource name="Subregion" path="/v3.1/subregion/{subregion}" id="aa435cc6-b686-42be-8a92-8870b57a868b"><con:settings/><con:parameters><con:parameter><con:name>subregion</con:name><con:value>subregion</con:value><con:style>TEMPLATE</con:style><con:default>subregion</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Subregion 1" id="2040ea08-4d6b-4448-b62f-fe2f7be81551" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>404</con:status><con:params/><con:element xmlns:sub="https://restcountries.com/v3.1/subregion/subregion">sub:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:request name="Request 1" id="62fd14c5-c024-4277-99cf-04d38afda21b" mediaType="application/json"><con:settings/><con:endpoint>https://restcountries.com</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="subregion" value="subregion" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>subregion</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:testSuite id="4d6fedaa-ee00-4705-99f3-755a77c79bdb" name="Countries_TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="05b86cd5-c779-4c42-af99-762a98b33646" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Subregion_TestCase 1" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Get_Subregion_Request" id="fbb41208-7896-4b0e-80d5-9ebb592537e7"><con:settings/><con:config service="https://restcountries.com" methodName="Subregion 1" resourcePath="/v3.1/subregion/{subregion}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Request" id="ca7fee7f-ddf5-4dbf-bdf6-3d912e759d2f" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://restcountries.com</con:endpoint><con:request/><con:originalUri>https://restcountries.com/v3.1/subregion/subregion</con:originalUri><con:assertion type="Simple Contains" id="94e1e7dc-85fd-4d84-924d-e17d56ead0cd" name="Contains"><con:configuration><token>Northern Europe</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="915a64c4-d2ad-4b05-9c13-310eb5092bde" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="5b34a3fd-5212-4dff-9ccc-08abbd5b1ea6" name="Invalid HTTP Status Codes"><con:configuration><codes>405
+
+</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="5b53a75a-227a-4e18-a837-9d68d64bb969" name="Verify Response"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def response = messageExchange.response.responseContent
+def json = new JsonSlurper().parseText(response)
+
+assert json.status ?: 'unknown' == 'success' : "Expected 'status' to be 'success', but found: ${json.status ?: 'unknown'}"
+</scriptText></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="87523ad8-e1a5-4fd6-afeb-8104a47d3adb" name="Error Response Negative"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def response = messageExchange.response.responseContent
+def json = new JsonSlurper().parseText(response)
+
+
+assert json.error_message != null : "Expected 'error_message' field to be present in the response."
+
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="subregion" value="Northern Europe" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="375397b9-e566-41b1-9f46-de02d95fc6bc"><con:settings/><con:config><script>import org.apache.poi.ss.usermodel.*
+import java.io.FileInputStream
+
+// Define the path to your Excel file
+def excelFilePath = "C:\\Users\\Lakshmi Priya\\OneDrive\\Desktop\\SoapUI_Data.xlsx"
+
+// Define the sheet name
+def sheetName = "Sheet1"
+
+// Load the Excel file
+def file = new FileInputStream(excelFilePath)
+def workbook = WorkbookFactory.create(file)
+def sheet = workbook.getSheet(sheetName)
+
+// Assuming the data is in the first row (header) of the Excel sheet
+def headerRow = sheet.getRow(1)
+
+// Retrieve data from specific columns (assuming columns A)
+def subregion = headerRow.getCell(0).toString()
+
+
+// Close the Excel file
+file.close()
+
+// Set the retrieved data as properties
+testRunner.testCase.setPropertyValue("subregion", subregion)
+
+
+// Log the retrieved values for validation
+log.info("Subregion: $subregion")
+</script></con:config></con:testStep><con:properties><con:property><con:name>subregion</con:name><con:value>Northern Europe</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

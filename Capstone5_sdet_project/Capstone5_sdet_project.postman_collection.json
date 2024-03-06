@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "58b24e8b-2b6e-4565-946a-a134d835c11d",
+		"name": "Capstone5_sdet_project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get_Countries_By_Subregion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Check if the response status code is 200 (OK)\r",
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Check if the response body is a JSON\r",
+							"pm.test(\"Response body is JSON\", function() {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+							"});\r",
+							"\r",
+							"//  Check if the response contains at least one country\r",
+							"pm.test(\"Response contains at least one country\", function() {\r",
+							"    pm.expect(pm.response.json()).to.have.property(\"length\").greaterThan(0);\r",
+							"});\r",
+							"\r",
+							"//check if subregion is northen europe \r",
+							"pm.test(\"Subregion is Northern Europe\", () => {\r",
+							"  pm.expect(pm.response.json()[0].subregion).to.equal(\"Northern Europe\");\r",
+							"});\r",
+							"//Check the Number of Countries in response\r",
+							"pm.test(\"Validate Response Body - Number of Countries\", function() {\r",
+							"  const countries = pm.response.json(); \r",
+							"  pm.expect(countries.length).to.equal(16); \r",
+							"  \r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restcountries.com/v3.1/subregion/{{subregion}}",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"com"
+					],
+					"path": [
+						"v3.1",
+						"subregion",
+						"{{subregion}}"
+					],
+					"query": [
+						{
+							"key": "subregion",
+							"value": "Northern Europe",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
